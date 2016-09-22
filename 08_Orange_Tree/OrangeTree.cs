@@ -8,9 +8,8 @@ namespace _08_Orange_Tree
         public int Age;
         public int Height;
         public bool TreeAlive;
-
-        public int NumOranges { get; internal set; }
-        public int OrangesEaten { get; internal set; }
+        public int NumOranges;
+        public int OrangesEaten;
 
         public OrangeTree(int v1, int v2)
         {
@@ -39,6 +38,11 @@ namespace _08_Orange_Tree
         internal void EatOrange(int v)
         {
             this.OrangesEaten += v;
+            if(this.NumOranges < 1)
+            {
+                throw new IndexOutOfRangeException ("You can't eat an orange that isn't there!  There are 0 oranges available to eat");
+            }
+            
         }
     }
 }
